@@ -3,8 +3,8 @@
 
 ###基本组件 Basic UI Element
 ***
-#####Gdevider
+#####Gdivider
 *可以设置中央文字的水平分割线组件*
-
-传送门->[Gdevider](https://github.com/echosoar/gui/blob/basicUIElement/gdevider)
+![Gdivider](./commonImg/gdivider.png)
+传送门->[Gdivider](https://github.com/echosoar/gui/blob/basicUIElement/gdivider)
 ***
