@@ -6,5 +6,5 @@
 #####Gdevider
 *可以设置中央文字的水平分割线组件*
 
-######传送门->[Gdevider](https://github.com/echosoar/gui/blob/basicUIElement/gdevider)
+传送门->[Gdevider](https://github.com/echosoar/gui/blob/basicUIElement/gdevider)
 ***
