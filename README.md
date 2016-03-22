@@ -12,12 +12,15 @@
 ***
 
 
-###负载组建 Complex UI Element
+###复杂组件 Complex UI Element
 ***
 #####FileUploader
-*基于ajax和HTML的FileReaderAPI的文件异步上传
+*基于ajax和HTML的FileReaderAPI的文件异步上传*
+
 >@parem onload(response text):when upload success
+
 >@parem onprogress(nowUploadedSize,totalSize)
+
 >@parem onerror(readyState,httpStatus):when upload error
 
 传送门->[FileUploader](https://github.com/echosoar/gyui/blob/complexUIElement/fileuploader)
