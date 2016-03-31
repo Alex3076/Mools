@@ -1,21 +1,46 @@
 #GYUI
-*GYUIÍ¨ÓÃÇ°¶Ë×é¼ş¿â£¬Ìá¹©»ù±¾×é¼şÒÔ¼°¸´ÔÓ×é¼ş£¬³ÖĞø¸üĞÂÖĞ*
+*GYUIé€šç”¨å‰ç«¯ç»„ä»¶åº“ï¼Œæä¾›åŸºæœ¬ç»„ä»¶ä»¥åŠå¤æ‚ç»„ä»¶ï¼ŒæŒç»­æ›´æ–°ä¸­*
 
-###»ù±¾×é¼ş Basic UI Element
+```html[[
+<!--
+
+                          _oo0oo_
+                         o8888888o
+                         88" . "88
+                         (| -_- |)
+                         0\  =  /0
+                       ___/`---'\___
+                     .' \\|     |// '.
+                    / \\|||  :  |||// \
+                   / _||||| -:- |||||_ \
+                  |   | \\\  -  /// |   |
+                  | \_|  ''\---/''  |_/ |
+                  \  .-\__  '-'  __/-.  /
+                ___'. .'  /--.--\  `. .'___
+             ."" '<  `.___\_<|>_/___.' >' "".
+            | | :  `- \`.;`\ _ /`;.`/ - `  : | |
+            \  \ `_.   \_ __\ /__ _/    .-` /  /
+        =====`-.____`.___ \_____/ ___.-`___.-'=====
+                          `=---='
+
+-->
+]]
+
+###åŸºæœ¬ç»„ä»¶ Basic UI Element
 ***
 #####Gdivider
-*¿ÉÒÔÉèÖÃÖĞÑëÎÄ×ÖµÄË®Æ½·Ö¸îÏß×é¼ş*
+*å¯ä»¥è®¾ç½®ä¸­å¤®æ–‡å­—çš„æ°´å¹³åˆ†å‰²çº¿ç»„ä»¶*
 
 ![Gdivider](./commonImg/gdivider.png)
 
-´«ËÍÃÅ->[Gdivider](https://github.com/echosoar/gyui/blob/basicUIElement/gdivider)
+ä¼ é€é—¨->[Gdivider](https://github.com/echosoar/gyui/blob/basicUIElement/gdivider)
 ***
 
 
-###¸´ÔÓ×é¼ş Complex UI Element
+###å¤æ‚ç»„ä»¶ Complex UI Element
 ***
 #####FileUploader
-*»ùÓÚajaxºÍHTMLµÄFileReaderAPIµÄÎÄ¼şÒì²½ÉÏ´«*
+*åŸºäºajaxå’ŒHTMLçš„FileReaderAPIçš„æ–‡ä»¶å¼‚æ­¥ä¸Šä¼ *
 
 >@parem onload(response text):when upload success
 
@@ -23,5 +48,5 @@
 
 >@parem onerror(readyState,httpStatus):when upload error
 
-´«ËÍÃÅ->[FileUploader](https://github.com/echosoar/gyui/blob/complexUIElement/fileuploader)
+ä¼ é€é—¨->[FileUploader](https://github.com/echosoar/gyui/blob/complexUIElement/fileuploader)
 ***
