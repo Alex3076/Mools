@@ -55,3 +55,8 @@
 
 传送门->[GDate](https://github.com/echosoar/gdate)
 ***
+#####GLighter
+*原生Javascript的代码高亮组件，目前已支持HTML、CSS以及Javascript的代码高亮*
+
+传送门->[GLighter](https://github.com/echosoar/glighter)
+***
