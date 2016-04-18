@@ -1,21 +1,46 @@
 #GYUI
-*GYUIͨ��ǰ������⣬�ṩ��������Լ��������������������*
+*GYUI通用前端组件库，提供基本组件以及复杂组件，持续更新中*
 
-###������� Basic UI Element
+```html
+<!--
+
+                          _oo0oo_
+                         o8888888o
+                         88" . "88
+                         (| -_- |)
+                         0\  =  /0
+                       ___/`---'\___
+                     .' \\|     |// '.
+                    / \\|||  :  |||// \
+                   / _||||| -:- |||||_ \
+                  |   | \\\  -  /// |   |
+                  | \_|  ''\---/''  |_/ |
+                  \  .-\__  '-'  __/-.  /
+                ___'. .'  /--.--\  `. .'___
+             ."" '<  `.___\_<|>_/___.' >' "".
+            | | :  `- \`.;`\ _ /`;.`/ - `  : | |
+            \  \ `_.   \_ __\ /__ _/    .-` /  /
+        =====`-.____`.___ \_____/ ___.-`___.-'=====
+                          `=---='
+
+-->
+```
+
+###基本组件 Basic UI Element
 ***
 #####Gdivider
-*���������������ֵ�ˮƽ�ָ������*
+*可以设置中央文字的水平分割线组件*
 
 ![Gdivider](./commonImg/gdivider.png)
 
-������->[Gdivider](https://github.com/echosoar/gyui/blob/basicUIElement/gdivider)
+传送门->[Gdivider](https://github.com/echosoar/gyui/blob/basicUIElement/gdivider)
 ***
 
 
-###������� Complex UI Element
+###复杂组件 Complex UI Element
 ***
 #####FileUploader
-*����ajax��HTML��FileReaderAPI���ļ��첽�ϴ�*
+*基于ajax和HTML的FileReaderAPI的文件异步上传*
 
 >@parem onload(response text):when upload success
 
@@ -23,5 +48,15 @@
 
 >@parem onerror(readyState,httpStatus):when upload error
 
-������->[FileUploader](https://github.com/echosoar/gyui/blob/complexUIElement/fileuploader)
+传送门->[FileUploader](https://github.com/echosoar/gyui/blob/complexUIElement/fileuploader)
+***
+#####GDate
+*原生Javascript日期选择组件，兼容PC已经移动端主流Browser*
+
+传送门->[GDate](https://github.com/echosoar/gdate)
+***
+#####GLighter
+*原生Javascript的代码高亮组件，目前已支持HTML、CSS以及Javascript的代码高亮*
+
+传送门->[GLighter](https://github.com/echosoar/glighter)
 ***
