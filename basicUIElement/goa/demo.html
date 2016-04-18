@@ -1,0 +1,52 @@
+
+<style>
+div{
+	position:absolute;
+	display:none;
+	width:100px;
+	height:100px;
+	background:#c33;
+	border-radius:3px;
+}
+a{
+	position:absolute;
+	right:10px;
+	bottom:10px;
+	display:block;
+	width:80px;
+	background:#709;
+	color:#fff;
+	border-radius:3px;
+	text-align:center;
+	cursor:pointer;
+	height:30px;
+	line-height:30px;
+}
+</style>
+<div style="top:10px;left:10px;"></div>
+<div style="top:10px;left:120px;"></div>
+<div style="top:10px;left:230px;"></div>
+<div style="top:10px;left:340px;"></div>
+<div style="top:120px;left:10px;"></div>
+<div style="top:120px;left:120px;"></div>
+<div style="top:120px;left:230px;"></div>
+<div style="top:120px;left:340px;"></div>
+<div style="top:230px;left:10px;"></div>
+<div style="top:230px;left:120px;"></div>
+<div style="top:230px;left:230px;"></div>
+<div style="top:230px;left:340px;"></div>
+<div style="top:340px;left:10px;"></div>
+<div style="top:340px;left:120px;"></div>
+<div style="top:340px;left:230px;"></div>
+<div style="top:340px;left:340px;"></div>
+<a>Out</a>
+<script src="./goa.js"></script>
+<script>
+	
+offsetIn(document.getElementsByTagName("div"),10,200);
+
+document.getElementsByTagName("a")[0].onclick=function(){
+	offsetOut(document.getElementsByTagName("div"),10,200);
+};
+	
+</script>
