@@ -35,6 +35,11 @@
 
 传送门->[Gdivider](https://github.com/echosoar/gyui/blob/basicUIElement/gdivider)
 ***
+#####GOA : GOffsetAnimate
+*可以设置偏移量的元素渐进渐隐组件*
+
+传送门->[GOA](https://github.com/echosoar/gyui/tree/master/basicUIElement/goa)
+***
 
 
 ###复杂组件 Complex UI Element
