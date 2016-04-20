@@ -40,6 +40,11 @@
 
 传送门->[GOA](https://github.com/echosoar/gyui/tree/master/basicUIElement/goa)
 ***
+#####GFPS
+*检测浏览器的帧频FPS，以便于浏览器的动画等使用*
+
+传送门->[GFPS](https://github.com/echosoar/gyui/blob/master/basicUIElement/gfps.js)
+***
 
 
 ###复杂组件 Complex UI Element
