@@ -48,7 +48,7 @@
 #####basementChildCount
 *获取某个结点的第一层某个类型子元素数量，比如从多层ul、li嵌套中获取第一层li结点的数量*
 
-传送门->[GFPS](https://github.com/echosoar/gyui/blob/master/basicUIElement/gfps.js)
+传送门->[BCC](https://github.com/echosoar/gyui/blob/master/basicUIElement/basementChildCount.html)
 ***
 
 
