@@ -1,0 +1,24 @@
+<ul id="u">
+	<li><ul><li></li><li></li><li></li></ul></li>
+	<li><ul><li></li></ul></li>
+	<li><ul><li></li></ul></li>
+	<li><ul><li></li></ul></li>
+	<li><ul><li></li></ul></li>
+	<li><ul><li></li></ul></li>
+	<li></li>
+</ul>
+<script>
+function getFirstChildCount(parentNode,nodeType){
+	nodeType=nodeType.toLowerCase();
+	var count=0;
+	var firstChild=parentNode.childNodes[0];
+	while(firstChild){
+		if(firstChild.nodeName.toLowerCase()===nodeType){
+			count++;
+		}
+		firstChild=firstChild.nextSibling;
+	}
+	console.log(count);
+}
+getFirstChildCount(document.getElementById("u"),"li");
+</script>
