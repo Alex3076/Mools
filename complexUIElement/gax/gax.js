@@ -149,7 +149,3 @@
 	}
 	global.Gax=Gax;
 })(this);
-
-Gax("http://127.0.0.1/").get({name:"高扬",age:21}).success(function(data,args){
-	console.log(data);
-});
