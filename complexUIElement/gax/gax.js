@@ -3,15 +3,23 @@
 	var PENDING=1,SUCCESS=2,ERROR=3;
 	var Gax=function(url){
 		_Gax=this;
+		_Gax.startTime=new Date();
 		if(!(this instanceof Gax)){
 			return new Gax(url);
 		}
 		this.url=url;
 		this.isOrigin=checkOrigin();
+		_Gax.args={};
 		_Gax.headerQueue=[];
+		_Gax.headerQueue["Content-Type"]="application/x-www-form-urlencoded";
 		_Gax.status=PENDING;
 		_Gax.successQueue=[];
 		_Gax.errorQueue=[];
+		_Gax.config={
+			type:"text",
+			timeout:0,
+			ontimeout:function(){}
+		}
 	}
 	
 	var checkOrigin=function(){
@@ -54,24 +62,48 @@
 				isLegal=true;
 				break;
 		}
+		_Gax.args.url = _Gax.url;
+		_Gax.args.data = _Gax.data;
+		_Gax.args.obj = _Gax;
 		if(isLegal){
 			_Gax.baseAjaxRequest();
 			_Gax.xhr.open(Method,url,true);
 			baseAjaxRequestSetHeader();
 			_Gax.xhr.send(data);
 			_Gax.xhr.onreadystatechange=function(){
-				
+				if(_Gax.xhr.readyState==4){
+					if(_Gax.xhr.status==200){
+						_Gax.resData=_Gax.xhr.responseXML==null?_Gax.xhr.responseText:_Gax.xhr.responseXML;
+						if(_Gax.config.type.toLowerCase()==="json")_Gax.resData=JSON.parse(_Gax.resData);
+						_Gax.status=SUCCESS;
+						finish();
+					}else{
+						_Gax.args.reason="XMLHttpRequest Error:"+_Gax.xhr.status+"!";
+						_Gax.status=ERROR;
+						finish();
+					}
+				}
+			}
+			_Gax.xhr.onerror=function(){
+				_Gax.args.reason="XMLHttpRequest Error!";
+				_Gax.status=ERROR;
+				finish();
+			}
+			_Gax.xhr.ontimeout=function(){
+				_Gax.config.ontimeout.call(null);
+				_Gax.args.reason="Timeout!";
+				_Gax.status=ERROR;
+				finish();
 			}
 			return true;
 		}
 		_Gax.status=ERROR;
 		_Gax.args.reason="Does not support this method : "+Method+" !";
-		_Gax.args.url=_Gax.url;
-		_Gax.args.data=_Gax.data;
 		return false;
 	}
 	
 	var finish=function(){
+		_Gax.args.time=(new Date())-_Gax.startTime;
 		if(_Gax.status===PENDING)return;
 		if(_Gax.status===SUCCESS){
 			while(fn=_Gax.successQueue.shift()){
@@ -106,6 +138,10 @@
 		return this;
 	}
 	
+	Gax.prototype.set=function(key,value){
+		_Gax.config[key]=value;
+		return this;
+	}
 	
 	Gax.prototype.get=function(data){
 		this.data=dataToUrl(data);
