@@ -1,4 +1,4 @@
-#GAZ
+#GAX : Glory Asynchronous XmlHttpRequest
 ***
 通用Ajax，支持链式调用，跨域，POST和GET
 ###基本方法 Basic Method
