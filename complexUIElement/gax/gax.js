@@ -1,4 +1,7 @@
 ;(function(global,undefined){
+	if(global.GaxQueue){
+		return;
+	}
 	global.GaxQueue={};
 	var _Gax;
 	var PENDING=1,SUCCESS=2,ERROR=3;
@@ -201,7 +204,6 @@
 		}
 		return this;
 	}
-	
 	
 	Gax.prototype.success=function(fn){
 		if(_Gax.status===PENDING){
