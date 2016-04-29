@@ -50,5 +50,31 @@ Gax("http://iwenku.net").set("type","json").header("COntent-Type","application/x
 > 此方法返回一个Gax对象。
 
 ```javascript
-Gax("http://iwenku.net").set("type","json").header("COntent-Type","application/x-www-form-urlencoded").post({name:"gax"});
+Gax("http://iwenku.net").post({name:"gax"});
+```
+***
+#####成功回调函数 success(callback(data[,args]))
+>callback是一个函数，当请求成功时会将返回的数据根据配置中的type来进行处理，然后传入callback。
+
+>args中存储着耗时等信息。
+
+> 此方法返回一个Gax对象。
+
+```javascript
+Gax("http://iwenku.net").get().success(function(data){
+	console.log(data);
+});
+```
+***
+#####失败回调函数 success(callback(args))
+>callback是一个函数，在请求失败时执行，args中存储着失败的原因，耗时等信息。
+
+> 此方法返回一个Gax对象。
+
+```javascript
+Gax("http://iwenku.net").get().success(function(data){
+	console.log(data);
+}).error(function(args){
+	console.log(args);
+});
 ```
