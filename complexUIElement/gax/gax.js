@@ -1,14 +1,17 @@
 ;(function(global,undefined){
+	global.GaxQueue={};
 	var _Gax;
 	var PENDING=1,SUCCESS=2,ERROR=3;
+	var _h=document.head||document.getElementsByTagName('head')[0];
 	var Gax=function(url){
-		_Gax=this;
-		_Gax.startTime=new Date();
 		if(!(this instanceof Gax)){
 			return new Gax(url);
 		}
+		_Gax=this;
+		_Gax.startTime=new Date();
+		_Gax.objid=Math.ceil(_Gax.startTime);
+		global.GaxQueue[_Gax.objid]=_Gax;
 		this.url=url;
-		this.isOrigin=checkOrigin();
 		_Gax.args={};
 		_Gax.headerQueue=[];
 		_Gax.headerQueue["Content-Type"]="application/x-www-form-urlencoded";
@@ -18,8 +21,10 @@
 		_Gax.config={
 			type:"text",
 			timeout:0,
-			ontimeout:function(){}
+			ontimeout:function(){},
+			com:"jsonp"
 		}
+		this.isOrigin=checkOrigin();
 	}
 	
 	var checkOrigin=function(){
@@ -27,8 +32,21 @@
 		return reg.test(_Gax.url);
 	}
 	
-	
-	
+	var crossOriginByJSONP=function(){
+		var temScript=document.createElement("script");
+		temScript.setAttribute("src",_Gax.url+"?"+_Gax.data);
+		_h.appendChild(temScript);
+		_Gax.jsonpNode=temScript;
+	}
+	var jsonpCallBack=function(objid,data){
+		var _Gax=global.GaxQueue[objid];
+		_Gax.jsonpNode.remove();
+		delete _Gax.jsonpNode;
+		_Gax.resData=data;
+		_Gax.status=SUCCESS;
+		finish(objid);
+	}
+
 	var dataToUrl=function(obj){
 		var value=[];
 		for(var key in obj){
@@ -37,7 +55,13 @@
 			value.push(encodeURIComponent(obj[key]));
 			value.push("&");
 		}
-		value.pop();
+		if(!checkOrigin()&&_Gax.config.com.toLowerCase()==="jsonp"){
+			value.push("gaxid");
+			value.push("=");
+			value.push(_Gax.objid);
+		}else{
+			value.pop();
+		}
 		return value.join("");
 	}
 	
@@ -101,8 +125,15 @@
 		_Gax.args.reason="Does not support this method : "+Method+" !";
 		return false;
 	}
+
+	var crossOrigin=function(){
+		if(_Gax.config.com.toLowerCase()==="jsonp"){
+			crossOriginByJSONP();
+		}
+	}
 	
 	var finish=function(){
+		if(arguments.length>0)_Gax=global.GaxQueue[arguments[0]];
 		_Gax.args.time=(new Date())-_Gax.startTime;
 		if(_Gax.status===PENDING)return;
 		if(_Gax.status===SUCCESS){
@@ -145,22 +176,28 @@
 	
 	Gax.prototype.get=function(data){
 		this.data=dataToUrl(data);
+		this.method="GET";
 		if(this.isOrigin){
 			var res=baseAjaxRequestMain("GET");
 			if(!res){
 				finish();
 			}
+		}else{
+			crossOrigin();
 		}
 		return this;
 	}
 	
 	Gax.prototype.post=function(data){
 		this.data=dataToUrl(data);
+		this.method="POST";
 		if(this.isOrigin){
 			var res=baseAjaxRequestMain("POST");
 			if(!res){
 				finish();
 			}
+		}else{
+			crossOrigin();
 		}
 		return this;
 	}
@@ -184,4 +221,5 @@
 		return this;
 	}
 	global.Gax=Gax;
+	global.GaxJsonp=jsonpCallBack;
 })(this);
