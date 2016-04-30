@@ -1,6 +1,6 @@
 #GAX : Glory Asynchronous XmlHttpRequest
 ***
-通用Ajax，支持链式调用，跨域，POST和GET
+通用Ajax，支持链式调用，跨域，POST和GET，新版本将会支持Fetch API，正在开发中。
 ###基本方法 Basic Method
 
 #####构造方法 Gax(url)
