@@ -116,7 +116,7 @@
 					_Gax.status=ERROR;
 					finish();
 				});
-				return;
+				return true;
 			}
 			
 			_Gax.baseAjaxRequest();
