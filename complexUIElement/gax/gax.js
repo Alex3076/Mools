@@ -16,7 +16,7 @@
 		global.GaxQueue[_Gax.objid]=_Gax;
 		this.url=url;
 		_Gax.args={};
-		_Gax.headerQueue=[];
+		_Gax.headerQueue={};
 		_Gax.headerQueue["Content-Type"]="application/x-www-form-urlencoded";
 		_Gax.status=PENDING;
 		_Gax.successQueue=[];
@@ -93,6 +93,32 @@
 		_Gax.args.data = _Gax.data;
 		_Gax.args.obj = _Gax;
 		if(isLegal){
+			if(window.fetch){
+				fetch(url,{
+					method:Method,
+					headers:_Gax.headerQueue,
+					body:data
+				}).then(function(res){
+					if(res.ok){
+						res.text().then(function(_data){
+							_Gax.resData=_data;
+							if(_Gax.config.type.toLowerCase()==="json")_Gax.resData=JSON.parse(_Gax.resData);
+							_Gax.status=SUCCESS;
+							finish();
+						});
+					}else{
+						_Gax.args.reason="Fetch Error:"+res.status+"!";
+						_Gax.status=ERROR;
+						finish();
+					}
+				},function(e){
+					_Gax.args.reason="Fetch Error:"+e.toString()+"!";
+					_Gax.status=ERROR;
+					finish();
+				});
+				return;
+			}
+			
 			_Gax.baseAjaxRequest();
 			_Gax.xhr.open(Method,url,true);
 			baseAjaxRequestSetHeader();
@@ -204,6 +230,7 @@
 		}
 		return this;
 	}
+	
 	
 	Gax.prototype.success=function(fn){
 		if(_Gax.status===PENDING){
