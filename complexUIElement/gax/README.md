@@ -66,7 +66,7 @@ Gax("http://iwenku.net").get().success(function(data){
 });
 ```
 ***
-#####失败回调函数 success(callback(args))
+#####失败回调函数 error(callback(args))
 >callback是一个函数，在请求失败时执行，args中存储着失败的原因，耗时等信息。
 
 > 此方法返回一个Gax对象。
