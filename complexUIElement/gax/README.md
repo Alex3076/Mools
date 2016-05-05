@@ -1,6 +1,6 @@
 #GAX : Glory Asynchronous XmlHttpRequest
 ***
-通用Ajax，支持链式调用，跨域，POST和GET，新版本将会支持Fetch API，正在开发中。
+通用Ajax，支持链式调用，跨域，POST和GET，内嵌Fetch API支持。
 ###基本方法 Basic Method
 
 #####构造方法 Gax(url)
@@ -66,7 +66,7 @@ Gax("http://iwenku.net").get().success(function(data){
 });
 ```
 ***
-#####失败回调函数 success(callback(args))
+#####失败回调函数 error(callback(args))
 >callback是一个函数，在请求失败时执行，args中存储着失败的原因，耗时等信息。
 
 > 此方法返回一个Gax对象。
