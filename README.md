@@ -50,7 +50,11 @@
 
 传送门->[BCC](https://github.com/echosoar/gyui/blob/master/basicUIElement/basementChildCount.html)
 ***
+#####GStyle
+*获取某个元素的某个属性值（无论是内嵌style还是外联样式）*
 
+传送门->[GStyle](https://github.com/echosoar/gyui/blob/basicUIElement/gstyle)
+***
 
 ###复杂组件 Complex UI Element
 ***
