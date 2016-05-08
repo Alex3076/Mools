@@ -55,6 +55,11 @@
 
 传送门->[GStyle](https://github.com/echosoar/gyui/blob/basicUIElement/gstyle)
 ***
+#####scrollCheck.js
+*侦听浏览器滚动条滚动，并返回页面距离顶部和底部位置*
+
+传送门->[scrollCheck](https://github.com/echosoar/gyui/blob/basicUIElement/scrollCheck.js)
+***
 
 ###复杂组件 Complex UI Element
 ***
