@@ -33,7 +33,7 @@
 
 ![Gdivider](./commonImg/gdivider.png)
 
-传送门->[Gdivider](https://github.com/echosoar/gyui/blob/basicUIElement/gdivider)
+传送门->[Gdivider](https://github.com/echosoar/gyui/tree/basicUIElement/gdivider)
 ***
 #####GOA : GOffsetAnimate
 *可以设置偏移量的元素渐进渐隐组件*
@@ -43,22 +43,27 @@
 #####GFPS
 *检测浏览器的帧频FPS，以便于浏览器的动画等使用*
 
-传送门->[GFPS](https://github.com/echosoar/gyui/blob/master/basicUIElement/gfps.js)
+传送门->[GFPS](https://github.com/echosoar/gyui/tree/master/basicUIElement/gfps.js)
 ***
 #####basementChildCount
 *获取某个结点的第一层某个类型子元素数量，比如从多层ul、li嵌套中获取第一层li结点的数量*
 
-传送门->[BCC](https://github.com/echosoar/gyui/blob/master/basicUIElement/basementChildCount.html)
+传送门->[BCC](https://github.com/echosoar/gyui/tree/master/basicUIElement/basementChildCount.html)
 ***
 #####GStyle
 *获取某个元素的某个属性值（无论是内嵌style还是外联样式）*
 
-传送门->[GStyle](https://github.com/echosoar/gyui/blob/basicUIElement/gstyle)
+传送门->[GStyle](https://github.com/echosoar/gyui/tree/basicUIElement/gstyle)
 ***
 #####scrollCheck.js
 *侦听浏览器滚动条滚动，并返回页面距离顶部和底部位置*
 
-传送门->[scrollCheck](https://github.com/echosoar/gyui/blob/basicUIElement/scrollCheck.js)
+传送门->[scrollCheck](https://github.com/echosoar/gyui/tree/basicUIElement/scrollCheck.js)
+***
+#####Grem.js
+*自动适应浏览器，改变根元素fontSize，使得页面宽度为10rem*
+
+传送门->[Grem.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/grem.js)
 ***
 
 ###复杂组件 Complex UI Element
@@ -72,7 +77,7 @@
 
 >@parem onerror(readyState,httpStatus):when upload error
 
-传送门->[FileUploader](https://github.com/echosoar/gyui/blob/complexUIElement/fileuploader)
+传送门->[FileUploader](https://github.com/echosoar/gyui/tree/complexUIElement/fileuploader)
 ***
 #####GDate
 *原生Javascript日期选择组件，兼容PC已经移动端主流Browser*
