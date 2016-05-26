@@ -65,6 +65,19 @@
 
 传送门->[Grem.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/grem.js)
 ***
+#####toCSS
+*传入任意一个元素节点，返回能够获取到这个结点的CSS选择器*
+
+例如：
+
+> html body div:nth-child(2) div#aaa.bbb.ccc.dd:first-child
+
+> html body div:first-child div#aaa.bbb.ccc.dd:last-child
+
+> html body p a#aaa:last-child
+
+传送门->[Grem.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/grem.js)
+***
 
 ###复杂组件 Complex UI Element
 ***
