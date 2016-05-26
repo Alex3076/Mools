@@ -11,64 +11,81 @@
 	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
 	<a id="aaa" onclick="console.log(toCSS(this));">CCCC</a>
 </div>
+<nav>
 <p>
 	<a id="aaa" onclick="console.log(toCSS(this));">CCCC</a>
 	<a id="aaa" onclick="console.log(toCSS(this));">CCCC</a>
 </p>
+</nav>
 <script>
-function toCSS(obj){
-	var res=[];
-	var seLen=0;
-	if(!obj.parentNode){
-		return "";
+(function(global,undefined){
+	function isThis(select,node){
+		var nodes=document.querySelectorAll(select);
+		return nodes.length===1 && nodes[0]===node;
 	}
-	var siblingElement=[].slice.call(obj.parentNode.children);
-	var tagName=obj.tagName.toLowerCase();
-	res.push(tagName);
-	siblingElement=siblingElement.filter(function(value,index){
-		if(value.tagName.toLowerCase()===tagName){
-			return true;
+
+	function toCSS(obj){
+		var res=[];
+		var seLen=0;
+		if(!obj.parentNode){
+			return "";
 		}
-		return false;
-	});
-	if(obj.id){
-		var tagId=obj.id;
-		res.push("#",obj.id);
+		var siblingElement=[].slice.call(obj.parentNode.children);
+		var tagName=obj.tagName.toLowerCase();
+		res.push(tagName);
 		siblingElement=siblingElement.filter(function(value,index){
-			if(value.id===tagId){
+			if(value.tagName.toLowerCase()===tagName){
 				return true;
 			}
 			return false;
 		});
-	}
-	if(obj.className){
-		var tagClass=obj.className.split(" ").sort();
-		var tagClassName=tagClass.join(" ");
-		tagClass.forEach(function(value,index){
-			res.push(".",value);
-		});
-		siblingElement=siblingElement.filter(function(value,index){
-			if(value.className.split(" ").sort().join(" ")===tagClassName){
-				return true;
-			}
-			return false;
-		});
-	}
-	seLen=siblingElement.length;
-	if(seLen>1){
-		siblingElement.forEach(function(value,index){
-			if(value===obj){
-				if(index===0){
-					res.push(":first-child");
-				}else if(index===seLen-1){
-					res.push(":last-child");
-				}else{
-					res.push(":nth-child(",(index+1),")");
+		if(obj.id){
+			var tagId=obj.id;
+			res.push("#",obj.id);
+			siblingElement=siblingElement.filter(function(value,index){
+				if(value.id===tagId){
+					return true;
 				}
-			}
-		});
+				return false;
+			});
+		}
+		if(obj.className){
+			var tagClass=obj.className.split(" ").sort();
+			var tagClassName=tagClass.join(" ");
+			tagClass.forEach(function(value,index){
+				res.push(".",value);
+			});
+			siblingElement=siblingElement.filter(function(value,index){
+				if(value.className.split(" ").sort().join(" ")===tagClassName){
+					return true;
+				}
+				return false;
+			});
+		}
+		
+		if(isThis(res.join(""),obj)){
+				return res.join("");
+		}
+		seLen=siblingElement.length;
+		if(seLen>1){
+			siblingElement.forEach(function(value,index){
+				if(value===obj){
+					if(index===0){
+						res.push(":first-child");
+					}else if(index===seLen-1){
+						res.push(":last-child");
+					}else{
+						res.push(":nth-child(",(index+1),")");
+					}
+				}
+			});
+		}
+		
+		return toCSS(obj.parentNode)+" "+res.join("");
 	}
 	
-	return toCSS(obj.parentNode)+" "+res.join("");
-}
+	global.toCSS=toCSS;
+	
+})(this);
+
 </script>
