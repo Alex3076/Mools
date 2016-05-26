@@ -1,0 +1,74 @@
+<div>
+	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
+	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
+</div>
+<div>
+	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
+	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
+</div>
+<div>
+	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
+	<div id="aaa" class="dd bbb ccc" onclick="console.log(toCSS(this));">AAAAAA</div>
+	<a id="aaa" onclick="console.log(toCSS(this));">CCCC</a>
+</div>
+<p>
+	<a id="aaa" onclick="console.log(toCSS(this));">CCCC</a>
+	<a id="aaa" onclick="console.log(toCSS(this));">CCCC</a>
+</p>
+<script>
+function toCSS(obj){
+	var res=[];
+	var seLen=0;
+	if(!obj.parentNode){
+		return "";
+	}
+	var siblingElement=[].slice.call(obj.parentNode.children);
+	var tagName=obj.tagName.toLowerCase();
+	res.push(tagName);
+	siblingElement=siblingElement.filter(function(value,index){
+		if(value.tagName.toLowerCase()===tagName){
+			return true;
+		}
+		return false;
+	});
+	if(obj.id){
+		var tagId=obj.id;
+		res.push("#",obj.id);
+		siblingElement=siblingElement.filter(function(value,index){
+			if(value.id===tagId){
+				return true;
+			}
+			return false;
+		});
+	}
+	if(obj.className){
+		var tagClass=obj.className.split(" ").sort();
+		var tagClassName=tagClass.join(" ");
+		tagClass.forEach(function(value,index){
+			res.push(".",value);
+		});
+		siblingElement=siblingElement.filter(function(value,index){
+			if(value.className.split(" ").sort().join(" ")===tagClassName){
+				return true;
+			}
+			return false;
+		});
+	}
+	seLen=siblingElement.length;
+	if(seLen>1){
+		siblingElement.forEach(function(value,index){
+			if(value===obj){
+				if(index===0){
+					res.push(":first-child");
+				}else if(index===seLen-1){
+					res.push(":last-child");
+				}else{
+					res.push(":nth-child(",(index+1),")");
+				}
+			}
+		});
+	}
+	
+	return toCSS(obj.parentNode)+" "+res.join("");
+}
+</script>
