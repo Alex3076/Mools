@@ -78,6 +78,18 @@
 
 传送门->[toCSS](https://github.com/echosoar/gyui/tree/master/basicUIElement/toCSS.html)
 ***
+#####percent.js
+*一个创新型的简单易用数字选择组件*
+
+![Gdivider](./commonImg/percent.png)
+
+使用方法：
+```html 
+ <gpercent from=0 to=80 now=10 width="100px" border="1px solid #fff" callback=alert></gpercent>
+```
+
+传送门->[percent.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/percent.js)
+***
 
 ###复杂组件 Complex UI Element
 ***
