@@ -90,6 +90,11 @@
 
 传送门->[percent.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/percent.js)
 ***
+#####GDebounce.js
+*一个防抖与节流组件*
+
+传送门->[GDebounce.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/gdebounce/)
+***
 
 ###复杂组件 Complex UI Element
 ***
