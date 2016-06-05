@@ -1,0 +1,15 @@
+<div id="data" style="position:fixed;top:0;width:100%;height:100%;overflow:auto;"></div>
+<div style="height:10000px;"></div>
+<script src="gdebounce.js"></script>
+<script>
+    var node=document.getElementById("data");
+    window.addEventListener("scroll",function(){
+        // 防抖，前缘，间隔1000ms
+        gd.debounce("scroll_debounce",function(data){
+            node.innerHTML=["[防抖，1s间隔]共计",data.tolTimes,"次，无效",data.skipTimes,"次","<br />",node.innerHTML].join("");
+        },1000,true);
+        gd.throttle("scroll_throttle",function(data){
+            node.innerHTML=["[节流，1s间隔]共计",data.tolTimes,"次，无效",data.skipTimes,"次","<br />",node.innerHTML].join("");
+        },1000,true);
+    })
+</script>
