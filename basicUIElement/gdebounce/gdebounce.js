@@ -28,8 +28,8 @@
         if(!is("function",callback)){ return false; }
         if(typeof interval!=="number"){ return false; }
 
-        if(arguments[3]!==null&& typeof arguments[3]==="boolean"){
-            immediate=!!arguments[3];
+        if(arguments[4]!==null&& typeof arguments[4]==="boolean"){
+            immediate=!!arguments[4];
             dataIndex++;
         }
         if(arguments[dataIndex]!==null&& is("array",arguments[dataIndex])){
