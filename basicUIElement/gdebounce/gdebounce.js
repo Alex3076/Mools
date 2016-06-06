@@ -6,7 +6,15 @@
 * 2.throttle 节流 @ gd.throttle(String UUID,Function callback,Number interval[,Bollean immediate:default=false[,Array DefaultData]])
 * */
 
-(function(global,undefined){
+(function(){
+	var root = typeof self == 'object' && self.self === self && self ||
+            typeof global == 'object' && global.global === global && global ||
+            this;
+			
+    if(root.gd){
+        return;
+    }
+	
     var Dqueue=[];
     var Tqueue=[];
     var gd={};
@@ -28,8 +36,8 @@
         if(!is("function",callback)){ return false; }
         if(typeof interval!=="number"){ return false; }
 
-        if(arguments[4]!==null&& typeof arguments[4]==="boolean"){
-            immediate=!!arguments[4];
+        if(arguments[dataIndex]!==null&& typeof arguments[dataIndex]==="boolean"){
+            immediate=!!arguments[dataIndex];
             dataIndex++;
         }
         if(arguments[dataIndex]!==null&& is("array",arguments[dataIndex])){
@@ -87,6 +95,6 @@
         arguments.unshift(false);
         init.apply(this,arguments);
     }
-    global.gd=gd;
+    root.gd=gd;
 
 })(this);
