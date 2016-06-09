@@ -53,12 +53,12 @@
 #####GStyle
 *获取某个元素的某个属性值（无论是内嵌style还是外联样式）*
 
-传送门->[GStyle](https://github.com/echosoar/gyui/tree/basicUIElement/gstyle)
+传送门->[GStyle](https://github.com/echosoar/gyui/tree/master/basicUIElement/gstyle)
 ***
 #####scrollCheck.js
 *侦听浏览器滚动条滚动，并返回页面距离顶部和底部位置*
 
-传送门->[scrollCheck](https://github.com/echosoar/gyui/tree/basicUIElement/scrollCheck.js)
+传送门->[scrollCheck](https://github.com/echosoar/gyui/tree/master/basicUIElement/scrollCheck.js)
 ***
 #####Grem.js
 *自动适应浏览器，改变根元素fontSize，使得页面宽度为10rem*
@@ -94,6 +94,11 @@
 *一个防抖与节流组件*
 
 传送门->[GDebounce.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/gdebounce/)
+***
+#####digitalGenerator.js
+*一个三次贝塞尔数字生成器，为动画提供支持的组件*
+
+传送门->[digitalGenerator.js](https://github.com/echosoar/gyui/tree/master/basicUIElement/digitalGenerator)
 ***
 
 ###复杂组件 Complex UI Element
