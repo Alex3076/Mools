@@ -32,7 +32,8 @@
 	
 	var checkOrigin=function(){
 		var reg=new RegExp("^"+window.location.origin,"i");
-		return reg.test(_Gax.url);
+		var notHttp=/^(?!http([s]?):\/\/)/i;
+		return reg.test(_Gax.url)||notHttp.test(_Gax.url);
 	}
 	
 	var crossOriginByJSONP=function(){
@@ -92,6 +93,7 @@
 		_Gax.args.url = _Gax.url;
 		_Gax.args.data = _Gax.data;
 		_Gax.args.obj = _Gax;
+
 		if(isLegal){
 			if(window.fetch){
 				fetch(url,{
@@ -124,9 +126,10 @@
 			baseAjaxRequestSetHeader();
 			_Gax.xhr.send(data);
 			_Gax.xhr.onreadystatechange=function(){
+
 				if(_Gax.xhr.readyState==4){
 					if(_Gax.xhr.status==200){
-						_Gax.resData=_Gax.xhr.responseXML==null?_Gax.xhr.responseText:_Gax.xhr.responseXML;
+						_Gax.resData=JSON.stringify(_Gax.xhr.responseXML)==null?_Gax.xhr.responseText:_Gax.xhr.responseXML;
 						if(_Gax.config.type.toLowerCase()==="json")_Gax.resData=JSON.parse(_Gax.resData);
 						_Gax.status=SUCCESS;
 						finish();
@@ -135,6 +138,7 @@
 						_Gax.status=ERROR;
 						finish();
 					}
+
 				}
 			}
 			_Gax.xhr.onerror=function(){
@@ -208,6 +212,7 @@
 		this.method="GET";
 		if(this.isOrigin){
 			var res=baseAjaxRequestMain("GET");
+
 			if(!res){
 				finish();
 			}
