@@ -124,8 +124,4 @@
 
 传送门->[GLighter](https://github.com/echosoar/glighter)
 ***
-#####GAX
-*通用Ajax封装，支持链式调用，跨域，POST和GET，内部兼容fetch api*
 
-传送门->[Gax](https://github.com/echosoar/gyui/tree/master/complexUIElement/gax)
-***
